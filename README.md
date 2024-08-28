@@ -12,7 +12,7 @@ Minha ideia é desenvolver o frontend posteriormente (com Vue) para consumir est
 
 ## Como executar o projeto
 
-Altere o nome do arquivo `.env.example` para `.env`. Lembrando que você pode alterar as configurações do arquivo .env como preferir.
+Altere o nome do arquivo `.env.example` para `.env`. Lembrando que você pode alterar as configurações do arquivo `.env` como preferir.
 
 Em seguida execute o build:
 ```bash
