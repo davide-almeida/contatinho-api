@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe Api::V1::UsersController, type: :controller do
   let(:user) { create(:user) }
   let(:other_user) { create(:user, email: 'email_do_bom@example.com') }
   let(:token) { Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first }

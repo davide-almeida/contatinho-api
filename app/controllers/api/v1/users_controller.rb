@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     render json: {
       status: 'success',
       data: {
-        users: serialized_users.pluck(:attributes)
+        users: serialized_users
       },
       message: 'Users fetched successfully.'
     }, status: :ok
