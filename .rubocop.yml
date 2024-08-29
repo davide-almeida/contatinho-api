@@ -1,8 +1,56 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+require:
+  - 'rubocop-rails'
+  - 'rubocop-rspec'
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'config/application.rb'
+    - 'config/routes.rb'
+    - 'config/initializers/devise.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+    - 'spec/controllers/users/*'
+
+  TargetRailsVersion: 7.2.1
+  TargetRubyVersion: 3.2.2
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Max: 50
+
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context']
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Rails/Output:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+RSpec/VerifiedDoubleReference:
+  EnforcedStyle: string
+
+Metrics/MethodLength:
+  Max: 20
