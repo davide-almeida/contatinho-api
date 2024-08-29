@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     render json: {
       status: 'success',
       data: {
-        users: serialized_users.map { |user| user[:attributes] }
+        users: serialized_users.pluck(:attributes)
       },
       message: 'Users fetched successfully.'
     }, status: :ok
