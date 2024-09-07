@@ -32,9 +32,7 @@ gem 'bootsnap', require: false
 gem 'rack-cors'
 
 gem 'devise' # https://github.com/heartcombo/devise
-gem 'devise-jwt'
-
-gem 'jsonapi-serializer' # https://github.com/jsonapi-serializer/jsonapi-serializer
+gem 'devise-jwt' # https://github.com/waiting-for-dev/devise-jwt
 
 group :development, :test do
   gem 'brakeman', require: false
