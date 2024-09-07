@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class ContactSerializer
-  def self.serialize(contacts)
-    contacts.map { |contact| contact.serializable_hash(include: [:phones, :address]) }
-  end
+class ContactSerializer < ActiveModel::Serializer
+  attributes :id, :name, :cpf_code
+
+  has_many :phones
+  has_one :address
 end

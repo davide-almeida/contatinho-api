@@ -9,7 +9,7 @@ class Users::SessionsController < Devise::SessionsController
       status: 'success',
       data: {
         token: request.env['warden-jwt_auth.token'],
-        user: UserSerializer.new(resource).serializable_hash[:data][:attributes]
+        user: resource
       },
       message: 'Logged in successfully.'
     }, status: :ok

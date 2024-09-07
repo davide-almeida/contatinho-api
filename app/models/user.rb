@@ -13,10 +13,4 @@ class User < ApplicationRecord
   has_many :contacts, dependent: :destroy
 
   accepts_nested_attributes_for :contacts, allow_destroy: true
-
-  private
-
-  def attribute_names_for_serialization
-    ['id', 'email']
-  end
 end

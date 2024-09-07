@@ -4,10 +4,8 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    users = UserSerializer.serialize(User.all)
+    users = User.all
 
-    render json: {
-      users: users
-    }, status: :ok
+    render json: users
   end
 end

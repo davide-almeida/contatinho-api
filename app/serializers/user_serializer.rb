@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-class UserSerializer
-  def self.serialize(users)
-    users.map { |user| user.serializable_hash() }
-  end
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :email
 end

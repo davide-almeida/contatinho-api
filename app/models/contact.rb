@@ -11,10 +11,4 @@ class Contact < ApplicationRecord
 
   accepts_nested_attributes_for :phones, allow_destroy: true
   accepts_nested_attributes_for :address, allow_destroy: true
-
-  private
-
-  def attribute_names_for_serialization
-    ['id', 'name', 'cpf_code']
-  end
 end
