@@ -31,6 +31,7 @@ gem 'bootsnap', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 gem 'rack-cors'
 
+gem 'active_model_serializers', '~> 0.10.0' # https://github.com/rails-api/active_model_serializers
 gem 'devise' # https://github.com/heartcombo/devise
 gem 'devise-jwt' # https://github.com/waiting-for-dev/devise-jwt
 
