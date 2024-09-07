@@ -9,6 +9,7 @@ class UserMailer < ApplicationMailer
   def reset_password_instructions(user, token)
     @user = user
     @token = token
+
     mail(to: @user.email, subject: 'Contatinho-API - Redefinir sua senha') do |format|
       format.html { render 'user_mailer/reset_password_instructions' }
       format.text { render 'user_mailer/reset_password_instructions' }

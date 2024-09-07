@@ -13,4 +13,11 @@ class User < ApplicationRecord
   has_many :contacts, dependent: :destroy
 
   accepts_nested_attributes_for :contacts, allow_destroy: true
+
+  # Sobrescrevendo o método send_reset_password_instructions do Devise
+  # para exibir o template (app/views/user_mailer/reset_password_instructions.html.erb) do email corretamente.
+  def send_reset_password_instructions
+    token = set_reset_password_token
+    UserMailer.reset_password_instructions(self, token).deliver_now
+  end
 end
