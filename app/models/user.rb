@@ -9,4 +9,14 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   validates :email, presence: true, uniqueness: true
+
+  has_many :contacts, dependent: :destroy
+
+  accepts_nested_attributes_for :contacts, allow_destroy: true
+
+  private
+
+  def attribute_names_for_serialization
+    ['id', 'email']
+  end
 end

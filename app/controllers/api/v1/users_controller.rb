@@ -4,14 +4,10 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all
-    serialized_users = UserSerializer.new(@users).serializable_hash[:data]
+    users = UserSerializer.serialize(User.all)
+
     render json: {
-      status: 'success',
-      data: {
-        users: serialized_users
-      },
-      message: 'Users fetched successfully.'
+      users: users
     }, status: :ok
   end
 end
