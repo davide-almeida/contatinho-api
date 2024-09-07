@@ -34,7 +34,7 @@ gem 'rack-cors'
 gem 'devise' # https://github.com/heartcombo/devise
 gem 'devise-jwt'
 
-gem 'jsonapi-serializer'
+gem 'jsonapi-serializer' # https://github.com/jsonapi-serializer/jsonapi-serializer
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -49,4 +49,8 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 6.0' # https://github.com/thoughtbot/shoulda-matchers
   gem 'simplecov', require: false # https://github.com/simplecov-ruby/simplecov
+end
+
+group :developement do
+  gem 'rails-erd' # https://github.com/voormedia/rails-erd
 end
