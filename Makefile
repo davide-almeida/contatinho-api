@@ -1,4 +1,4 @@
-build:
+setup:
 	@docker build -t contatinhos-api .
 
 run:
