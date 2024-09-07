@@ -11,6 +11,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
+    # valida se o password está correto
+    return render json: {
+      errors: ["Invalid password"]
+    }, status: :unauthorized unless password_matches?
+
+    # continua com a deleção do usuário (se a senha for válida)
     if @user.destroy
       render json: {
         message: "User deleted successfully"
@@ -34,7 +40,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def password_matches?
+    current_password = params[:password]
+    @user.valid_password?(current_password)
+  end
+
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:password)
   end
 end
