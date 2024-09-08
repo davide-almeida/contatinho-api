@@ -13,6 +13,13 @@ class Contact < ApplicationRecord
   accepts_nested_attributes_for :phones, allow_destroy: true
   accepts_nested_attributes_for :address, allow_destroy: true
 
+  # Scope para realizar a busca de contact por name ou cpf_code
+  scope :search_by_name_or_cpf, ->(query) {
+    return none if query.blank?
+
+    where("cpf_code ILIKE :query OR name ILIKE :query", query: "%#{query}%").order(:name)
+  }
+
   private
 
   def tracker

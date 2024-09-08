@@ -44,6 +44,14 @@ class Api::V1::ContactsController < ApplicationController
     end
   end
 
+  def search
+    contacts = current_user.contacts.search_by_name_or_cpf(params[:query])
+
+    return render json: { message: "No contacts found" }, status: :not_found if contacts.empty?
+
+    render json: contacts, status: :ok
+  end
+
   private
 
   def set_contact
