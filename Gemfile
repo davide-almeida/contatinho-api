@@ -34,6 +34,7 @@ gem 'rack-cors'
 gem 'active_model_serializers', '~> 0.10.0' # https://github.com/rails-api/active_model_serializers
 gem 'devise' # https://github.com/heartcombo/devise
 gem 'devise-jwt' # https://github.com/waiting-for-dev/devise-jwt
+gem 'faraday', '~> 2.11.0' # https://lostisland.github.io/faraday
 
 group :development, :test do
   gem 'brakeman', require: false
