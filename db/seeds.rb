@@ -26,6 +26,7 @@ puts 'Creating addresses...'
 Address.create!(
   street: 'Rua 1',
   number: '123',
+  neighborhood: 'Bairro 1',
   city: 'São Paulo',
   state: 'SP',
   zip_code: '12345-678',

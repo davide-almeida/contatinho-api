@@ -60,7 +60,7 @@ class Api::V1::ContactsController < ApplicationController
     params.require(:contact).permit(
       :name, :cpf_code,
       phones_attributes: %i[number],
-      address_attributes: %i[street number city state zip_code country latitude longitude]
+      address_attributes: %i[street number neighborhood city state zip_code country latitude longitude]
     )
   end
 end
