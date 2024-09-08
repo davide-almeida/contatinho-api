@@ -18,6 +18,12 @@ Rails.application.routes.draw do
           get :search
         end
       end
+      resources :addresses, only: [] do
+        collection do
+          get :search_by_cep
+          get :search_by_address
+        end
+      end
     end
   end
 
