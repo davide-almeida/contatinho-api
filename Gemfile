@@ -41,7 +41,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
   gem 'factory_bot_rails' # https://github.com/thoughtbot/factory_bot_rails
   gem 'pry-byebug' # https://github.com/deivid-rodriguez/pry-byebug
-  gem 'rspec-rails', '~> 6.1.0' # https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 7.0.1' # https://github.com/rspec/rspec-rails
   gem 'rubocop-rails', require: false # https://github.com/rubocop/rubocop-rails
   gem 'rubocop-rspec', require: false # https://github.com/rubocop/rubocop-rspec
 end
