@@ -2,7 +2,6 @@
 
 class Contact < ApplicationRecord
   belongs_to :user
-  before_validation :tracker
 
   validates :name, presence: true
   validates :cpf_code, presence: true, uniqueness: true
@@ -23,35 +22,7 @@ class Contact < ApplicationRecord
 
   private
 
-  # Método para buscar latitude e longitude do endereço e adicionar na instância do contact
-  def tracker
-    unless address.latitude.present? && address.longitude.present?
-      # Monta o endereço completo como string
-      full_address = [
-        self.address.street,
-        self.address.number,
-        self.address.neighborhood,
-        self.address.city,
-        self.address.state,
-        self.address.country
-      ].compact.join(', ')
-
-      # Chama o service GoogleMapsClient
-      googlemaps = GoogleMapsClient.new(full_address)
-      location = googlemaps.call
-
-      # Popula latitude e longitude com o resultado da consulta
-      if location['status'] == 'OK' && location['results'].any?
-        coordinates = location['results'].first['geometry']['location']
-        self.address.latitude = coordinates['lat']
-        self.address.longitude = coordinates['lng']
-      else
-        errors.add(:base, 'Address not found')
-      end
-    end
-  end
-
-  # Método para validar o formato do CPF (seguindo a regra oficial)
+  # Método para validar o formato do CPF (seguindo as regras oficiais)
   def cpf_format_validator
     unless CpfValidator.valid?(cpf_code)
       errors.add(:cpf_code, 'format is invalid')
