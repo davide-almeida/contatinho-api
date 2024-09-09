@@ -36,5 +36,16 @@ Monitorar o container da aplicação (attach)
 make attach
 ```
 
+## Variáveis de ambiente
+Por questão de segurança os valores das variáveis de ambiente não estão neste repositório, sendo assim, vou informar apenas sem os valores para facilitar o entendimento, caso alguém queira baixar este repositório para teste/estudo terá que configurar as variáveis.
+Para isso, é necessário primeiro remover o arquivo `config/credentials.yml.enc`. Em seguida, gerar o arquivo `config/master.key` com o comando `bin/rails credentials:edit` e logo após editar `config/credentials.yml.enc` com o comando `EDITOR='vim' rails credentials:edit`.
+
+| Variável de Ambiente | Descrição |
+|-|-|
+| devise_jwt_secret_key | Token gerado pelo [jwt-devise](https://github.com/waiting-for-dev/devise-jwt) para controle dos tokens de autenticação |
+| mail_user | Endereço de email utilizado no reenvio de senha do User |
+| mail_password | Senha do email utilizado no reenvio de senha do User |
+| google_maps_key | Utilizada para acessar o serviço do google maps. Pode ser gerada no [GCC](https://cloud.google.com/cloud-console?hl=pt-BR) |
+
 ## Modelagem do banco de dados
 ![image](https://github.com/user-attachments/assets/f4e4c4a5-dea5-4ffb-9635-22bd291589ba)
