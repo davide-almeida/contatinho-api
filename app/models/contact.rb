@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
 
   validates :name, presence: true
   validates :cpf_code, presence: true, uniqueness: true
+  validate :cpf_format_validator
 
   has_many :phones, dependent: :destroy
   has_one :address, dependent: :destroy
@@ -47,6 +48,13 @@ class Contact < ApplicationRecord
       else
         errors.add(:base, 'Address not found')
       end
+    end
+  end
+
+  # Método para validar o formato do CPF (seguindo a regra oficial)
+  def cpf_format_validator
+    unless CpfValidator.valid?(cpf_code)
+      errors.add(:cpf_code, 'format is invalid')
     end
   end
 end
