@@ -37,8 +37,8 @@ make attach
 ```
 
 ## Variáveis de ambiente
-Por questão de segurança os valores das variáveis de ambiente não estão neste repositório, sendo assim, vou informar apenas sem os valores para facilitar o entendimento, caso alguém queira baixar este repositório para teste/estudo terá que configurar as variáveis.
-Para isso, é necessário primeiro remover o arquivo `config/credentials.yml.enc`. Em seguida, gerar o arquivo `config/master.key` com o comando `bin/rails credentials:edit` e logo após editar `config/credentials.yml.enc` com o comando `EDITOR='vim' rails credentials:edit`.
+Por questão de segurança os valores das variáveis de ambiente não estão neste repositório, sendo assim, vou informar apenas as variáveis sem os valores para facilitar o entendimento. Caso alguém queira baixar este repositório para teste/estudo terá que configurar as variáveis.
+Para isso, é necessário primeiro remover o arquivo `config/credentials.yml.enc`. Em seguida, gerar o arquivo `config/master.key` com o comando `bin/rails credentials:edit` e logo após editar o `config/credentials.yml.enc` com o comando `EDITOR='vim' rails credentials:edit`.
 
 | Variável de Ambiente | Descrição |
 |-|-|
