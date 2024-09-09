@@ -14,9 +14,9 @@ Minha ideia é desenvolver o frontend posteriormente (com Vue) para consumir est
 
 Altere o nome do arquivo `.env.example` para `.env`. Lembrando que você pode alterar as configurações do arquivo `.env` como preferir.
 
-Em seguida execute o build:
+Em seguida execute o setup:
 ```bash
-make build
+make setup
 ```
 
 E por último execute o projeto:
@@ -30,3 +30,11 @@ Acessar o bash do container da aplicação
 ```bash
 make bash
 ```
+
+Monitorar o container da aplicação (attach)
+```bash
+make attach
+```
+
+## Modelagem do banco de dados
+![image](https://github.com/user-attachments/assets/f4e4c4a5-dea5-4ffb-9635-22bd291589ba)
